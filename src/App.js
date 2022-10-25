@@ -4,8 +4,17 @@ import Header from './components/Header';
 import Home from './components/Home';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Fragment } from 'react';
+import {useEffect} from "react";
+import { getUserAuth } from './actions';
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
+
+  useEffect(() => {
+   
+    props.getUserAuth();
+  }, [props]);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -23,5 +32,13 @@ function App() {
     </BrowserRouter> 
   );
 }
+
+const mapStateToProps=(state)=> {
+  return {};
+}
+
+const mapDispatchToProps = (dispatch)=> ({
+  getUserAuth: ()=> dispatch(getUserAuth())
+});
  
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);

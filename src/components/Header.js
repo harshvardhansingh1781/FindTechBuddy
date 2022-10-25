@@ -56,7 +56,11 @@ const Header = (props) => {
 
             <User>
               <a href="/">
-                <img src="../images/user.svg" alt="" />
+                {props.user && props.user.photoURL ? (
+                  <img src={props.user.photoURL} alt="" />
+                ) : (
+                  <img src="../images/user.svg" alt="" />
+                )}
                 <span>Me</span>
                 <img src="../images/down-icon.svg" alt="" />
               </a>
@@ -134,7 +138,7 @@ const SearchIcon = styled.div`
   width: 40px;
   position: absolute;
   z-index: 1;
-  top: 10px;
+  top: 2px;
   left: 2px;
   border-radius: 0 2px 2px 0;
   margin: 0;

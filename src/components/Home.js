@@ -37,6 +37,7 @@ const Container = styled.div`
 
 const Section = styled.section`
   min-height: 50px;
+  margin-top:10px;
   padding: 16px 0;
   box-sizing: content-box;
   text-align: center;
